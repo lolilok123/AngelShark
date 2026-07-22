@@ -1,0 +1,750 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>AngelShark | Правила Discord сервера</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    background:#070812;
+    font-family:'Inter',sans-serif;
+    color:#eef2ff;
+    overflow-x:hidden;
+    line-height:1.5;
+}
+
+/* BACKGROUND */
+
+.bg{
+    position:fixed;
+    inset:0;
+    z-index:-3;
+
+    background:
+    radial-gradient(circle at 20% 10%, rgba(120,80,255,0.18), transparent 25%),
+    radial-gradient(circle at 80% 0%, rgba(90,70,255,0.16), transparent 25%),
+    radial-gradient(circle at 50% 100%, rgba(120,70,255,0.12), transparent 35%),
+    #070812;
+}
+
+.bg2{
+    position:fixed;
+    inset:0;
+    z-index:-2;
+
+    opacity:.18;
+
+    background-image:
+    linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px);
+
+    background-size:40px 40px;
+}
+
+.noise{
+    position:fixed;
+    inset:0;
+    z-index:-1;
+
+    opacity:.05;
+
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140' viewBox='0 0 140 140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
+}
+
+/* CONTAINER */
+
+.container{
+    max-width:1100px;
+    margin:auto;
+    padding:25px 16px 60px;
+}
+
+/* HERO */
+
+.hero{
+    text-align:center;
+    margin-bottom:30px;
+    padding-bottom:25px;
+
+    border-bottom:
+    1px solid rgba(120,90,255,0.2);
+}
+
+.badge{
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+
+    background:
+    rgba(95,75,139,0.18);
+
+    border:
+    1px solid rgba(170,130,255,0.25);
+
+    color:#cbbdff;
+
+    padding:8px 18px;
+
+    border-radius:999px;
+
+    font-size:13px;
+
+    margin-bottom:18px;
+
+    backdrop-filter:blur(10px);
+
+    box-shadow:
+    0 0 30px rgba(130,90,255,0.08);
+}
+
+.hero h1{
+    font-size:62px;
+    font-weight:900;
+
+    letter-spacing:-3px;
+
+    margin-bottom:12px;
+
+    background:
+    linear-gradient(to bottom,#ffffff,#b695ff);
+
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+
+    text-shadow:
+    0 0 50px rgba(150,110,255,0.25);
+}
+
+.sub{
+    color:#9da4c7;
+
+    font-size:18px;
+
+    max-width:800px;
+
+    margin:auto;
+}
+
+.sub i{
+    color:#b995ff;
+    margin-right:10px;
+}
+
+/* BUTTON */
+
+.discord-btn{
+    display:inline-flex;
+    align-items:center;
+    gap:12px;
+
+    margin-top:22px;
+
+    padding:16px 30px;
+
+    border-radius:999px;
+
+    background:
+    linear-gradient(135deg,#6e5bff,#9f7cff);
+
+    color:white;
+    text-decoration:none;
+
+    font-size:18px;
+    font-weight:800;
+
+    transition:.25s;
+
+    box-shadow:
+    0 0 35px rgba(111,92,255,0.45),
+    0 0 80px rgba(111,92,255,0.15);
+}
+
+.discord-btn:hover{
+    transform:translateY(-3px) scale(1.02);
+}
+
+/* SECTION */
+
+.section{
+    position:relative;
+
+    overflow:hidden;
+
+    margin-bottom:22px;
+
+    border-radius:26px;
+
+    background:
+    linear-gradient(
+    to bottom,
+    rgba(18,20,33,0.95),
+    rgba(9,11,20,0.98));
+
+    border:
+    1px solid rgba(130,100,255,0.18);
+
+    backdrop-filter:blur(12px);
+
+    box-shadow:
+    0 0 45px rgba(120,90,255,0.08),
+    inset 0 0 35px rgba(255,255,255,0.02);
+}
+
+/* HEADER */
+
+.section-header{
+    display:flex;
+    align-items:center;
+    gap:14px;
+
+    padding:20px 24px;
+
+    border-bottom:
+    1px solid rgba(255,255,255,0.05);
+}
+
+/* ICON */
+
+.icon-box{
+    width:58px;
+    height:58px;
+
+    min-width:58px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    border-radius:18px;
+
+    background:
+    linear-gradient(
+        180deg,
+        rgba(140,110,255,0.15),
+        rgba(40,30,70,0.18)
+    );
+
+    border:
+    1px solid rgba(170,130,255,0.18);
+
+    box-shadow:
+    inset 0 0 20px rgba(255,255,255,0.03),
+    0 0 30px rgba(120,90,255,0.12);
+
+    color:#b892ff;
+
+    font-size:24px;
+}
+
+.section-header h2{
+    font-size:28px;
+    font-weight:800;
+}
+
+/* RULES */
+
+.section-content{
+    padding:20px;
+}
+
+.rule-list{
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+}
+
+.rule-item{
+    background:
+    rgba(5,7,15,0.72);
+
+    border:
+    1px solid rgba(255,255,255,0.03);
+
+    border-left:
+    4px solid #8c6dff;
+
+    border-radius:14px;
+
+    padding:16px 18px;
+
+    transition:.25s;
+}
+
+.rule-item:hover{
+    transform:translateX(5px);
+
+    border-color:
+    rgba(140,110,255,0.2);
+}
+
+.rule-title{
+    font-size:18px;
+    font-weight:700;
+
+    color:#f2f4ff;
+
+    line-height:1.6;
+}
+
+.num{
+    color:#af90ff;
+    font-weight:900;
+    margin-right:10px;
+}
+
+/* IMPORTANT */
+
+.important{
+    border:
+    2px solid rgba(170,130,255,0.4);
+
+    background:
+    linear-gradient(
+        to right,
+        rgba(90,65,190,0.24),
+        rgba(10,12,20,0.95)
+    );
+
+    box-shadow:
+    0 0 40px rgba(140,100,255,0.15);
+}
+
+.important .rule-title{
+    font-size:24px;
+    font-weight:900;
+}
+
+/* PUNISH */
+
+.punish{
+    display:inline-block;
+
+    background:
+    linear-gradient(135deg,#ff4f65,#ff7a7a);
+
+    color:white;
+
+    padding:5px 12px;
+
+    border-radius:999px;
+
+    font-size:12px;
+    font-weight:800;
+
+    margin-left:10px;
+}
+
+/* WARNING */
+
+.warning{
+    margin-top:20px;
+
+    background:
+    linear-gradient(
+        135deg,
+        rgba(130,25,40,0.3),
+        rgba(60,5,20,0.5)
+    );
+
+    border:
+    1px solid rgba(255,100,130,0.2);
+
+    border-left:
+    5px solid #ff5b7d;
+
+    border-radius:18px;
+
+    padding:18px 20px;
+
+    color:#ffd6e1;
+
+    font-size:16px;
+    font-weight:600;
+}
+
+/* FOOTER */
+
+footer{
+    text-align:center;
+
+    margin-top:35px;
+
+    color:#6d7395;
+
+    font-size:13px;
+
+    border-top:
+    1px solid rgba(255,255,255,0.05);
+
+    padding-top:25px;
+}
+
+/* MOBILE */
+
+@media(max-width:900px){
+
+.hero h1{
+    font-size:42px;
+}
+
+.sub{
+    font-size:15px;
+}
+
+.discord-btn{
+    font-size:15px;
+    padding:14px 22px;
+}
+
+.section-header h2{
+    font-size:22px;
+}
+
+.rule-title{
+    font-size:15px;
+}
+
+.important .rule-title{
+    font-size:20px;
+}
+
+.icon-box{
+    width:52px;
+    height:52px;
+    min-width:52px;
+    font-size:20px;
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="bg"></div>
+<div class="bg2"></div>
+<div class="noise"></div>
+
+<div class="container">
+
+<!-- HERO -->
+
+<div class="hero">
+
+<div class="badge">
+<i class="fab fa-discord"></i>
+Discord сервер XzSquad
+</div>
+
+<h1>⚡ AngelShark ⚡</h1>
+
+<div class="sub">
+<i class="fas fa-shield-alt"></i>
+Заходя на сервер, вы автоматически соглашаетесь с правилами
+</div>
+
+<a href="https://discord.com/invite/rmQFshDrUU" class="discord-btn" target="_blank">
+<i class="fab fa-discord"></i>
+Присоединиться к Discord
+</a>
+
+</div>
+
+<!-- 1 SECTION -->
+
+<div class="section">
+
+<div class="section-header">
+
+<div class="icon-box">
+<i class="fas fa-scroll"></i>
+</div>
+
+<h2>📕 1.0 Общие правила</h2>
+
+</div>
+
+<div class="section-content">
+
+<div class="rule-list">
+
+<div class="rule-item important">
+<div class="rule-title">
+<span class="num">1.1</span>
+Иметь приписку в нике #AS
+</div>
+</div>
+
+<div class="rule-item">
+<div class="rule-title">
+<span class="num">1.2</span>
+Уважайте участников. Оскорбления и токсичность запрещены.
+</div>
+</div>
+
+<div class="rule-item">
+<div class="rule-title">
+<span class="num">1.3</span>
+Запрещены читы и стороннее ПО.
+<span class="punish">бан навсегда</span>
+</div>
+</div>
+
+<div class="rule-item">
+<div class="rule-title">
+<span class="num">1.4</span>
+Реклама сторонних проектов запрещена.
+</div>
+</div>
+
+<div class="rule-item">
+<div class="rule-title">
+<span class="num">1.5</span>
+Запрещено выдавать себя за администрацию сервера.
+</div>
+</div>
+
+<div class="rule-item">
+<div class="rule-title">
+<span class="num">1.6</span>
+Запрещены NSFW аватарки, ники и статусы.
+</div>
+</div>
+
+<div class="rule-item">
+<div class="rule-title">
+<span class="num">1.7</span>
+Запрещено обходить наказания через твинк-аккаунты.
+</div>
+</div>
+
+</div>
+</div>
+</div>
+
+<!-- 2 SECTION -->
+
+<div class="section">
+
+<div class="section-header">
+
+<div class="icon-box">
+<i class="fas fa-comment-dots"></i>
+</div>
+
+<h2>📗 2.0 Текстовые каналы</h2>
+
+</div>
+
+<div class="section-content">
+
+<div class="rule-list">
+
+<div class="rule-item">
+<div class="rule-title">
+<span class="num">2.1</span>
+Спам и флуд запрещены.
+</div>
+</div>
+
+<div class="rule-item">
+<div class="rule-title">
+<span class="num">2.2</span>
+Запрещён контент 18+ и подозрительные ссылки.
+</div>
+</div>
+
+<div class="rule-item">
+<div class="rule-title">
+<span class="num">2.3</span>
+Не используйте массовые упоминания без причины.
+</div>
+</div>
+
+<div class="rule-item">
+<div class="rule-title">
+<span class="num">2.4</span>
+Пишите строго по тематике каналов.
+</div>
+</div>
+
+<div class="rule-item">
+<div class="rule-title">
+<span class="num">2.5</span>
+Запрещено злоупотреблять GIF, эмодзи и стикерами.
+</div>
+</div>
+
+<div class="rule-item">
+<div class="rule-title">
+<span class="num">2.6</span>
+Не провоцируйте участников на конфликты.
+</div>
+</div>
+
+</div>
+</div>
+</div>
+
+<!-- 3 SECTION -->
+
+<div class="section">
+
+<div class="section-header">
+
+<div class="icon-box">
+<i class="fas fa-microphone-alt"></i>
+</div>
+
+<h2>📘 3.0 Голосовые каналы</h2>
+
+</div>
+
+<div class="section-content">
+
+<div class="rule-list">
+
+<div class="rule-item">
+<div class="rule-title">
+<span class="num">3.1</span>
+Запрещено кричать и мешать общению.
+</div>
+</div>
+
+<div class="rule-item">
+<div class="rule-title">
+<span class="num">3.2</span>
+Уважайте собеседников.
+</div>
+</div>
+
+<div class="rule-item">
+<div class="rule-title">
+<span class="num">3.3</span>
+Требования администрации обязательны к исполнению.
+</div>
+</div>
+
+<div class="rule-item">
+<div class="rule-title">
+<span class="num">3.4</span>
+Запрещено использовать Voice Changer и программы для изменения голоса.
+</div>
+</div>
+
+<div class="rule-item">
+<div class="rule-title">
+<span class="num">3.5</span>
+Запрещены саундпады, музыка и громкие звуки в микрофон.
+</div>
+</div>
+
+<div class="rule-item">
+<div class="rule-title">
+<span class="num">3.6</span>
+Не используйте микрофон с сильным шумом или эхо.
+</div>
+</div>
+
+<div class="rule-item">
+<div class="rule-title">
+<span class="num">3.7</span>
+Запрещено мешать игрокам в голосовых каналах.
+</div>
+</div>
+
+</div>
+</div>
+</div>
+
+<!-- 4 SECTION -->
+
+<div class="section">
+
+<div class="section-header">
+
+<div class="icon-box">
+<i class="fas fa-user-shield"></i>
+</div>
+
+<h2>📙 4.0 Администрация</h2>
+
+</div>
+
+<div class="section-content">
+
+<div class="rule-list">
+
+<div class="rule-item">
+<div class="rule-title">
+<span class="num">4.1</span>
+Запрещено спорить с администрацией во время наказания.
+</div>
+</div>
+
+<div class="rule-item">
+<div class="rule-title">
+<span class="num">4.2</span>
+Попытка обмана администрации может привести к блокировке.
+</div>
+</div>
+
+<div class="rule-item">
+<div class="rule-title">
+<span class="num">4.3</span>
+Решения администрации окончательны.
+</div>
+</div>
+
+</div>
+</div>
+</div>
+
+<!-- WARNING -->
+
+<div class="warning">
+
+<i class="fas fa-gavel"></i>
+
+<strong>Важно:</strong>
+
+Нарушение правил может привести к муту, варну или блокировке аккаунта.
+
+</div>
+
+<!-- FOOTER -->
+
+<footer>
+
+<i class="fab fa-discord"></i>
+XzSquad Discord Server
+
+<br><br>
+
+© 2026 AngelShark Community
+
+</footer>
+
+</div>
+
+</body>
+</html>
